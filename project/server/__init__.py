@@ -38,6 +38,7 @@ migrate = Migrate(app, db)
 def root_site():
     return "<p>It works!</p>"
 
+
 from project.server.auth.views import auth_blueprint
 app.register_blueprint(auth_blueprint)
 

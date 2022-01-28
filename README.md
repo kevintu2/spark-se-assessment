@@ -6,7 +6,7 @@
 
 1. Activate a virtualenv
 1. Install the requirements
-
+ 
 ### Set Environment Variables
 
 Update *project/server/config.py*, and then run:

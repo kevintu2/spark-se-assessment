@@ -20,7 +20,9 @@ class RegisterAPI(MethodView):
 
     def post(self):
         # get the post data
-        post_data = request.get_json(); print(request)
+        post_data = request.get_json(); 
+        print(request)
+        print(post_data)
         # check if user already exists
         user = User.query.filter_by(email=post_data.get('email')).first()
         if not user:
@@ -55,6 +57,7 @@ class RegisterAPI(MethodView):
             return make_response(jsonify(responseObject)), 202
 
 
+    
 # define the API resources
 registration_view = RegisterAPI.as_view('register_api')
 
@@ -62,5 +65,21 @@ registration_view = RegisterAPI.as_view('register_api')
 auth_blueprint.add_url_rule(
     '/auth/register',
     view_func=registration_view,
+    methods=['POST', 'GET']
+)
+class IndexAPI(MethodView):
+    def get(self):
+        index = {"USERS":[]}
+        results = User.query.all()
+        for user in results:
+            info = [user.email,user.id]
+            index["USERS"].append(info)
+            
+        return make_response(jsonify(index))
+    
+index_view = IndexAPI.as_view('index_api')
+auth_blueprint.add_url_rule(
+    '/users/index',
+    view_func=index_view,
     methods=['POST', 'GET']
 )
