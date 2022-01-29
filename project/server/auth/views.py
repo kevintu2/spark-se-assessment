@@ -72,7 +72,7 @@ class IndexAPI(MethodView):
         index = {"USERS":[]}
         results = User.query.all()
         for user in results:
-            info = [user.email,user.id]
+            info = {"EMAIL": user.email, "ID": user.id, "REGISTERED_DATE": user.registered_on}
             index["USERS"].append(info)
             
         return make_response(jsonify(index))
