@@ -1,5 +1,5 @@
-web: gunicorn manage:app
+web: gunicorn manage:spark-se-assessment
 heroku ps:scale web=1
-release: flask db upgrade
+
 
 
