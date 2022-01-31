@@ -16,8 +16,8 @@ class DevelopmentConfig(BaseConfig):
     """Development configuration."""
     DEBUG = True
     BCRYPT_LOG_ROUNDS = 4
-    SQLALCHEMY_DATABASE_URI = postgres_local_base + database_name
-
+    # SQLALCHEMY_DATABASE_URI = postgres_local_base + database_name
+    SQLALCHEMY_DATABASE_URI = 'postgres://scaztdxbomwkgi:97829c9145be6eda7082acc7846cc52ff715960a0a76f3d54193e50ddb9988af@ec2-54-227-246-76.compute-1.amazonaws.com:5432/d7h5a0pai50mqi'
 
 class TestingConfig(BaseConfig):
     """Testing configuration."""
