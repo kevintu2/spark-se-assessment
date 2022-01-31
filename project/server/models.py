@@ -1,7 +1,7 @@
 import jwt
 import datetime
 
-from __init__ import  app, db, bcrypt
+from project.server import  app, db, bcrypt
 
 
 
