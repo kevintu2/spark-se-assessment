@@ -1,7 +1,8 @@
 import jwt
 import datetime
 
-from project.server import app, db, bcrypt
+from __init__ import  app, db, bcrypt
+
 
 
 class User(db.Model):
